@@ -116,6 +116,7 @@ async function play() {
       if (className.includes('J_chkitot')) {
         if (href.includes('login')) {
           console.log('🚫未登陆，请先登录')
+          await page.waitForTimeout(120 * 1000)
         } else if (href.includes('sign')) {
           await page.click('#JD_sign')
           console.log('点击签到')
