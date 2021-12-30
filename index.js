@@ -132,8 +132,14 @@ async function play() {
 }
 
 ;(async () => {
-  const task = '1 1 * * * *'
-  console.log('开始定时任务', task)
-  schedule.scheduleJob(task, play)
+  const args = process.argv.splice(2)
+  let isLogin = args[0] || ''
+  if (isLogin) {
+    await play()
+  }else{
+    const task = '1 1 * * * *'
+    console.log('开始定时任务', task)
+    schedule.scheduleJob(task, play)
+  }
   // await play()
 })()
