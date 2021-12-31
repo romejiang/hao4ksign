@@ -137,7 +137,7 @@ async function play() {
   if (isLogin) {
     await play()
   }else{
-    const task = '1 1 * * * *'
+    const task = '1 1 1 * * *'
     console.log('开始定时任务', task)
     schedule.scheduleJob(task, play)
   }
